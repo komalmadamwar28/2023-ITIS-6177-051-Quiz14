@@ -7,40 +7,42 @@ https://github.com/o1lab/xmysql/
     create database sample;
     
 2. Created two tables "users" and "orders" in the same database and added some sample values
-    CREATE TABLE `users` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(255) NOT NULL,
-  `email` VARCHAR(255) NOT NULL,
-  PRIMARY KEY (`id`)
-);
-
-INSERT INTO `users` (`name`, `email`)
-VALUES
-  ('John Doe', 'johndoe@example.com'),
-  ('Jane Doe', 'janedoe@example.com'),
-  ('Bob Smith', 'bobsmith@example.com'),
-  ('Alice Johnson', 'alicejohnson@example.com'),
-  ('Mike Williams', 'mikewilliams@example.com');
-
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
-
-CREATE TABLE `orders` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `user_id` INT NOT NULL,
-  `product_name` VARCHAR(255) NOT NULL,
-  `price` DECIMAL(10,2) NOT NULL,
-  PRIMARY KEY (`id`),
-  FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-);
+            CREATE TABLE `users` (
+          `id` INT(11) NOT NULL AUTO_INCREMENT,
+          `name` VARCHAR(255) NOT NULL,
+          `email` VARCHAR(255) NOT NULL,
+          PRIMARY KEY (`id`)
+        );
+        --------------------------------------------------------------------------------------------
+        INSERT INTO `users` (`name`, `email`)
+        VALUES
+          ('John Doe', 'johndoe@example.com'),
+          ('Jane Doe', 'janedoe@example.com'),
+          ('Bob Smith', 'bobsmith@example.com'),
+          ('Alice Johnson', 'alicejohnson@example.com'),
+          ('Mike Williams', 'mikewilliams@example.com');
+        --------------------------------------------------------------------------------------------
 
 
-INSERT INTO `orders` (`user_id`, `product_name`, `price`)
-VALUES
-  (1, 'Product A', 9.99),
-  (2, 'Product B', 19.99),
-  (1, 'Product C', 14.99),
-  (3, 'Product D', 24.99),
-  (2, 'Product E', 29.99);
+        CREATE TABLE `orders` (
+          `id` INT NOT NULL AUTO_INCREMENT,
+          `user_id` INT NOT NULL,
+          `product_name` VARCHAR(255) NOT NULL,
+          `price` DECIMAL(10,2) NOT NULL,
+          PRIMARY KEY (`id`),
+          FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+        );
+        --------------------------------------------------------------------------------------------
+
+
+        INSERT INTO `orders` (`user_id`, `product_name`, `price`)
+        VALUES
+          (1, 'Product A', 9.99),
+          (2, 'Product B', 19.99),
+          (1, 'Product C', 14.99),
+          (3, 'Product D', 24.99),
+          (2, 'Product E', 29.99);
+        --------------------------------------------------------------------------------------------
 
 
 3. Installed xmysql package using the command , "npm install -g xmysql"
