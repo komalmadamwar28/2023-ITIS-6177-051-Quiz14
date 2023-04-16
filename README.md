@@ -8,6 +8,7 @@ https://github.com/o1lab/xmysql/
     
 2. Created two tables "users" and "orders" in the same database and added some sample values
         --------------------------------------------------------------------------------------------
+        
             CREATE TABLE `users` (
           `id` INT(11) NOT NULL AUTO_INCREMENT,
           `name` VARCHAR(255) NOT NULL,
@@ -15,6 +16,7 @@ https://github.com/o1lab/xmysql/
           PRIMARY KEY (`id`)
         );
         --------------------------------------------------------------------------------------------
+        
         INSERT INTO `users` (`name`, `email`)
         VALUES
           ('John Doe', 'johndoe@example.com'),
